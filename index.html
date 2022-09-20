@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Quiz</title>
+    <title>Coding Quiz Game</title>
     <link rel="stylesheet" href="assets/css/reset.css"/>
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
@@ -65,18 +65,13 @@
         <section id="results" data-state="hidden">
             <h2>All done</h2>
             <p id="score"></p>
-            <form>
+            <form action="assets/scores.html">
                 <p>Enter initials: </p>
-                <input type="textarea">
-                <input type="submit">
+                <input id="initials" type="textarea">
+                <input id="submit" type="submit">
             </form>
             <hr/>
             <h3 class="result"></h3>
-        </section>
-        <section id="high-scores" data-state="hidden">
-            <h2>High Scores</h2>
-            <button id="back">Go back</button>
-            <button id="clear">Clear High Scores</button>
         </section>
     </main>
     <script src="assets/script.js"></script>
