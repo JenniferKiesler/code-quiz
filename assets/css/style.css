@@ -1,19 +1,27 @@
+:root {
+    --backgroundColor: #07BEB8;
+    --fontColor: #25283D;
+    --buttonColor: #8F3985;
+    --buttonFont: #98DFEA;
+    --hoverColor: #EFD9CE;
+}
+
 body {
-    background: #07BEB8;
-    color: #25283D;
+    background: var(--backgroundColor);
+    color: var(--fontColor);
     margin: 10px;
 }
 
 button {
-    background:#8F3985;
-    color: #98DFEA;
+    background: var(--buttonColor);
+    color: var(--buttonFont);
     font-size: 25px;
     border-radius: 5px;
 }
 
-button:hover {
-    background: #EFD9CE;
-    color: #25283D;
+button:hover, #submit:hover {
+    background: var(--hoverColor);
+    color: var(--fontColor);
     cursor: pointer;
 }
 
@@ -25,7 +33,7 @@ header {
 #scores {
     margin-left: 20px;
     text-decoration: none;
-    color: #8F3985;
+    color: var(--buttonColor);
 }
 
 #time {
@@ -124,7 +132,7 @@ h3 {
     font-size: 25px;
     margin: auto 10px;
     padding: 5px 10px;
-    border: 2px solid #25283D;
+    border: 2px solid var(--fontColor);
 }
 
 #submit {
@@ -132,15 +140,15 @@ h3 {
     margin: auto 10px;
     padding: 5px;
     border-radius: 5px;
-    background: #8F3985;
-    color: #98DFEA;
+    background: var(--buttonColor);
+    color: var(--buttonFont);
 }
 
-#submit:hover {
-    background: #EFD9CE;
+/* #submit:hover {
+    background: var(--hoverColor);
     color: #25283D;
     cursor: pointer;
-}
+} */
 
 #high-scores {
     justify-content: center;
@@ -154,4 +162,5 @@ h3 {
 
 #back, #clear {
     padding: 10px;
+    margin: 10px;
 }
