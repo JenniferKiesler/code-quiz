@@ -8,6 +8,7 @@ button {
     background:#8F3985;
     color: #98DFEA;
     font-size: 25px;
+    border-radius: 5px;
 }
 
 button:hover {
@@ -36,7 +37,7 @@ main {
     position: relative;
 }
 
-#begin, .question, #results {
+#begin, .question, #results, #high-scores {
     position: absolute;
     left: 20px;
     right: 20px;
@@ -69,7 +70,7 @@ h1 {
 #start {
     margin-top: 5px;
     padding: 10px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 [data-state="hidden"] {
@@ -96,7 +97,7 @@ h2 {
     width: 20%;
     margin: 10px auto;
     padding: 10px 5px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 hr {
@@ -139,4 +140,18 @@ h3 {
     background: #EFD9CE;
     color: #25283D;
     cursor: pointer;
+}
+
+#high-scores {
+    justify-content: center;
+    text-align: center;
+    width: auto;
+}
+
+#all-scores {
+    margin: 20px auto;
+}
+
+#back, #clear {
+    padding: 10px;
 }

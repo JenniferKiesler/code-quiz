@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <a id="scores" href="assets/scores.html">View High Scores</a>
+        <a id="scores" href="#high-scores">View High Scores</a>
         <p id="time">Time: <span id="seconds"></span></p>
     </header>
     <main>
@@ -72,6 +72,12 @@
             </form>
             <hr/>
             <h3 class="result"></h3>
+        </section>
+        <section id="high-scores" data-state="hidden">
+            <h1>High Scores</h1>
+            <ul id="all-scores"></ul>
+            <button id="back">Play again</button>
+            <button id="clear">Clear High Scores</button>
         </section>
     </main>
     <script src="assets/script.js"></script>
