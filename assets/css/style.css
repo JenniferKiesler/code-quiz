@@ -12,6 +12,10 @@ body {
     margin: 10px;
 }
 
+main {
+    position: relative;
+}
+
 button {
     background: var(--buttonColor);
     color: var(--buttonFont);
@@ -25,8 +29,9 @@ button:hover, #submit:hover {
     cursor: pointer;
 }
 
+/* header */
 header {
-    margin: 50px 120px 30px 80px;
+    margin: 100px 120px 30px 80px;
     font-size: 25px;
 }
 
@@ -41,24 +46,15 @@ header {
     margin-right: 100px;
 }
 
-main {
-    position: relative;
-}
-
+/* main sections */
 #begin, .question, #results, #high-scores {
     position: absolute;
     left: 20px;
     right: 20px;
     margin: 50px auto;
-}
-
-#begin {
-    /* display: flexbox; */
     justify-content: center;
     text-align: center;
     width: auto;
-    /* padding: 50px; */
-    /* height: 300px; */
 }
 
 h1 {
@@ -68,6 +64,23 @@ h1 {
     padding-bottom: 5px;
 }
 
+h2 {
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 25px;
+    margin: 20px 5px 20px 0;
+}
+
+hr {
+    margin-top: 50px;
+    width: 70%;
+}
+
+/* begin section */
 #begin p {
     width: 65%;
     margin: 30px auto;
@@ -78,25 +91,11 @@ h1 {
 #start {
     margin-top: 5px;
     padding: 10px;
-    /* border-radius: 5px; */
 }
 
+/* questions */
 [data-state="hidden"] {
     display: none;
-}
-
-.question {
-    /* display: flexbox; */
-    justify-content: center;
-    text-align: center;
-    width: auto;
-    /* margin: 50px auto; */
-}
-
-h2 {
-    font-size: 35px;
-    margin-bottom: 30px;
-    font-weight: bold;
 }
 
 .one, .two, .three, .four, .five {
@@ -105,27 +104,11 @@ h2 {
     width: 20%;
     margin: 10px auto;
     padding: 10px 5px;
-    /* border-radius: 5px; */
 }
 
-hr {
-    margin-top: 50px;
-    width: 70%;
-}
-
-#results {
-    justify-content: center;
-    text-align: center;
-    width: auto;
-}
-
+/* results section */
 form {
     display: inline-flex;
-}
-
-h3 {
-    font-size: 25px;
-    margin: 20px 5px 20px 0;
 }
 
 #initials {
@@ -144,18 +127,7 @@ h3 {
     color: var(--buttonFont);
 }
 
-/* #submit:hover {
-    background: var(--hoverColor);
-    color: #25283D;
-    cursor: pointer;
-} */
-
-#high-scores {
-    justify-content: center;
-    text-align: center;
-    width: auto;
-}
-
+/* high scores section */
 #all-scores {
     margin: 20px auto;
 }
