@@ -7,6 +7,7 @@ body {
 button {
     background:#8F3985;
     color: #98DFEA;
+    font-size: 25px;
 }
 
 button:hover {
@@ -39,7 +40,7 @@ header {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 55px;
     font-weight: bold;
     text-align: center;
     padding-bottom: 5px;
@@ -52,12 +53,31 @@ h1 {
 }
 
 #start {
-    font-size: 25px;
     margin-top: 5px;
     padding: 10px;
     border-radius: 5px;
 }
 
-[data-state="hidden"] {
-    /* display: none; */
+/* [data-state="hidden"] {
+    display: none;
+} */
+
+.question {
+    display: flexbox;
+    justify-content: center;
+    text-align: center;
+}
+
+.one, .two, .three, .four, .five {
+    display: block;
+    text-align: left;
+    width: 20%;
+    margin: 10px auto;
+    padding: 10px 5px;
+    border-radius: 5px;
+}
+
+h2 {
+    font-size: 35px;
+    margin-bottom: 30px;
 }

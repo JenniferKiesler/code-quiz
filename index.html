@@ -14,19 +14,19 @@
         <p id="time">Time: <span id="seconds"></span></p>
     </header>
     <main>
-        <section id="begin">
+        <section id="begin" data-state="visible">
             <h1>Coding Quiz</h1>
             <p>Try to answer the following questions within the time limit. Incorrect answers will result in 10 seconds off the time and will affect your score at the end.</p>
             <button id="start">Start Quiz</button>
         </section>
-        <section id="question1" data-state="hidden">
+        <section id="question1" class="question" data-state="hidden">
             <h2>Commonly used data types DO NOT include:</h2>
             <button class="one">1. strings</button>
             <button class="one">2. booleans</button>
             <button class="one">3. alerts</button>
             <button class="one">4. numbers</button>
         </section>
-        <section id="question2" data-state="hidden">
+        <section id="question2" class="question" data-state="hidden">
             <h2>The condition in an if / else statement is enclosed with ________.</h2>
             <button class="two">1. quotes</button>
             <button class="two">2. curly brackets</button>
@@ -35,7 +35,7 @@
             <hr/>
             <h3 class="result"></h3>
         </section>
-        <section id="question3" data-state="hidden">
+        <section id="question3" class="question" data-state="hidden">
             <h2>Arrays in JavaScript can be used to store ________.</h2>
             <button class="three">1. numbers and strings</button>
             <button class="three">2. other arrays</button>
@@ -44,7 +44,7 @@
             <hr/>
             <h3 class="result"></h3>
         </section>
-        <section id="question4" data-state="hidden">
+        <section id="question4" class="question" data-state="hidden">
             <h2>String values must be enclosed within ________ when being assigned to variables.</h2>
             <button class="four">1. commas</button>
             <button class="four">2. curly brackets</button>
@@ -53,7 +53,7 @@
             <hr/>
             <h3 class="result"></h3>
         </section>
-        <section id="question5" data-state="hidden">
+        <section id="question5" class="question" data-state="hidden">
             <h2>The code to be executed, by a function, is placed inside ________.</h2>
             <button class="five">1. parenthesis</button>
             <button class="five">2. square brackets</button>
