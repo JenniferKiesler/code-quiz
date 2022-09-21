@@ -13,6 +13,7 @@ button {
 button:hover {
     background: #EFD9CE;
     color: #25283D;
+    cursor: pointer;
 }
 
 header {
@@ -31,11 +32,23 @@ header {
     margin-right: 100px;
 }
 
+main {
+    position: relative;
+}
+
+#begin, .question, #results {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    margin: 50px auto;
+}
+
 #begin {
-    display: flexbox;
+    /* display: flexbox; */
     justify-content: center;
     text-align: center;
-    padding: 50px;
+    width: auto;
+    /* padding: 50px; */
     /* height: 300px; */
 }
 
@@ -50,6 +63,7 @@ h1 {
     width: 65%;
     margin: 30px auto;
     font-size: 25px;
+    line-height: 1.5;
 }
 
 #start {
@@ -58,14 +72,22 @@ h1 {
     border-radius: 5px;
 }
 
-/* [data-state="hidden"] {
+[data-state="hidden"] {
     display: none;
-} */
+}
 
 .question {
-    display: flexbox;
+    /* display: flexbox; */
     justify-content: center;
     text-align: center;
+    width: auto;
+    /* margin: 50px auto; */
+}
+
+h2 {
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-weight: bold;
 }
 
 .one, .two, .three, .four, .five {
@@ -77,7 +99,44 @@ h1 {
     border-radius: 5px;
 }
 
-h2 {
-    font-size: 35px;
-    margin-bottom: 30px;
+hr {
+    margin-top: 50px;
+    width: 70%;
+}
+
+#results {
+    justify-content: center;
+    text-align: center;
+    width: auto;
+}
+
+form {
+    display: inline-flex;
+}
+
+h3 {
+    font-size: 25px;
+    margin: 20px 5px 20px 0;
+}
+
+#initials {
+    font-size: 25px;
+    margin: auto 10px;
+    padding: 5px 10px;
+    border: 2px solid #25283D;
+}
+
+#submit {
+    font-size: 20px;
+    margin: auto 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background: #8F3985;
+    color: #98DFEA;
+}
+
+#submit:hover {
+    background: #EFD9CE;
+    color: #25283D;
+    cursor: pointer;
 }
