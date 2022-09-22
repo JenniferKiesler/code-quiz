@@ -1,15 +1,17 @@
-// var timer (#seconds)
-// var different sections
-// var start button
-// var correct answers
-// var h3 .result
-// var #score
-// var form inputs
-// var #all-scores
-// var #play-again btn
-// var #clear
+var timer = document.getElementById('seconds');
+var startPage = document.getElementById('begin');
+var questions = document.querySelectorAll('.question');
+var startBtn = document.getElementById('start');
+var correct = document.querySelectorAll('[data-answer]');
+var answerResult = document.getElementsByClassName('result');
+var score = document.getElementById('score');
+var initials = document.getElementById('initials');
+var submitBtn = document.getElementById('submit');
+var highScoresList = document.getElementById('all-scores');
+var againBtn = document.getElementById('play-again');
+var clear = document.getElementById('clear');
 
-// var time = 60
+var time = 60;
 
 // countdown function setTime setInterval
     // timer begins to countdown
