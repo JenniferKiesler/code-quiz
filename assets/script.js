@@ -31,15 +31,16 @@ function setTime() {
 
         if (timeLeft === 0) {
             clearInterval(timerInterval);
+            zeroTime()
         }
     }, 1000);
 }
 
-// function zeroTime() {
-//     // change questions to hidden
-//     // #results to visible
-//     // set #score to remaining time
-// }
+function zeroTime() {
+    questions[index].setAttribute('data-state', 'hidden');
+    resultsPage.setAttribute('data-state', 'visible');
+    score.textContent = timeLeft;
+}
 
 // function questions() {
 //     // for loop for questions
@@ -50,14 +51,6 @@ function setTime() {
 //         // end
 //             // call zeroTime()
 // }
-
-startBtn.addEventListener('click', function() {
-    setTime();
-    startPage.setAttribute('data-state', 'hidden');
-    questions[0].setAttribute('data-state', 'visible');
-})   
-
-
 
 function guessAnswer(event) {
     var element = event.target;
@@ -80,11 +73,18 @@ function guessAnswer(event) {
             questions[index].setAttribute('data-state', 'visible');
         } else {
             questions[4].setAttribute('data-state', 'hidden');
-                resultsPage.setAttribute('data-state', 'visible');
+            resultsPage.setAttribute('data-state', 'visible');
+            score.textContent = timeLeft;
         } 
           
     }
 }
+
+startBtn.addEventListener('click', function() {
+    setTime();
+    startPage.setAttribute('data-state', 'hidden');
+    questions[0].setAttribute('data-state', 'visible');
+}) 
 
 optionsOne.addEventListener('click', guessAnswer)
 optionsTwo.addEventListener('click', guessAnswer)
