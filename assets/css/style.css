@@ -71,8 +71,9 @@ h2 {
 }
 
 h3 {
-    font-size: 25px;
+    font-size: 30px;
     margin: 20px 5px 20px 0;
+    opacity: 0.8;
 }
 
 hr {
@@ -109,6 +110,11 @@ hr {
 /* results section */
 form {
     display: inline-flex;
+}
+
+h4 {
+    font-size: 25px;
+    margin: 20px 5px 20px 0;
 }
 
 #initials {

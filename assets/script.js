@@ -1,17 +1,27 @@
 var timer = document.getElementById('seconds');
 var startPage = document.getElementById('begin');
-var questions = document.querySelectorAll('.question');
 var startBtn = document.getElementById('start');
-var correct = document.querySelectorAll('[data-answer]');
-var answerResult = document.getElementsByClassName('result');
+
+var questions = document.querySelectorAll('.question');
+var optionsOne = document.getElementById('one');
+var optionsTwo = document.getElementById('two');
+var optionsThree = document.getElementById('three');
+var optionsFour = document.getElementById('four');
+var optionsFive = document.getElementById('five');
+
+var answerResult = document.querySelectorAll('.result');
+
+var resultsPage = document.getElementById('results')
 var score = document.getElementById('score');
 var initials = document.getElementById('initials');
 var submitBtn = document.getElementById('submit');
+
 var highScoresList = document.getElementById('all-scores');
 var againBtn = document.getElementById('play-again');
 var clear = document.getElementById('clear');
 
 var timeLeft = 60;
+var index = 0;
 
 // countdown function
 function setTime() {
@@ -25,37 +35,68 @@ function setTime() {
     }, 1000);
 }
 
-function zeroTime() {
-    // change questions to hidden
-    // #results to visible
-    // set #score to remaining time
+// function zeroTime() {
+//     // change questions to hidden
+//     // #results to visible
+//     // set #score to remaining time
+// }
+
+// function questions() {
+//     // for loop for questions
+//         // while loop (time > 0) 
+//             // var choose question from array
+//             // change that question to visible
+//             // call answer function
+//         // end
+//             // call zeroTime()
+// }
+
+startBtn.addEventListener('click', function() {
+    setTime();
+    startPage.setAttribute('data-state', 'hidden');
+    questions[0].setAttribute('data-state', 'visible');
+})   
+
+
+
+function guessAnswer(event) {
+    var element = event.target;
+
+    if (element.matches('button')) {
+        var correct = element.getAttribute('data-answer');
+        
+        questions[index].setAttribute('data-state', 'hidden');
+       
+        if (correct === 'correct') {
+            answerResult[index].textContent = 'Correct!';
+            index++;
+        } else {
+            answerResult[index].textContent = 'Wrong!';
+            index++;
+            timeLeft = timeLeft - 10;
+        }
+        
+        if (index <= 4) {
+            questions[index].setAttribute('data-state', 'visible');
+        } else {
+            questions[4].setAttribute('data-state', 'hidden');
+                resultsPage.setAttribute('data-state', 'visible');
+        } 
+          
+    }
 }
 
-function questions() {
-    // for loop for questions
-        // while loop (time > 0) 
-            // var choose question from array
-            // change that question to visible
-            // call answer function
-        // end
-            // call zeroTime()
-}
-
-// eventlistener for answer buttons?
-    // changes visible to hidden
-    // if (var for correct answers) add text correct in .result
-        // else 
-            // add text wrong
-            // subtract 10 seconds from time
+optionsOne.addEventListener('click', guessAnswer)
+optionsTwo.addEventListener('click', guessAnswer)
+optionsThree.addEventListener('click', guessAnswer)
+optionsFour.addEventListener('click', guessAnswer)
+optionsFive.addEventListener('click', guessAnswer)
 
 // eventlistener for #scores
     // turns #begin to hidden
     // turns #high-scores to visible
 
-// eventlistener for start button
-    // call setTime()
-    // turns #begin to hidden
-    // call questions()
+
     
 
 // eventlistener for submit button
