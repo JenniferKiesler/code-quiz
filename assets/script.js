@@ -11,13 +11,37 @@ var highScoresList = document.getElementById('all-scores');
 var againBtn = document.getElementById('play-again');
 var clear = document.getElementById('clear');
 
-var time = 60;
+var timeLeft = 60;
 
-// countdown function setTime setInterval
-    // timer begins to countdown
-        // time shows in #seconds
+// countdown function
+function setTime() {
+    var timerInterval = setInterval(function() {
+        timeLeft--;
+        timer.textContent = timeLeft;
 
-// answer function
+        if (timeLeft === 0) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+}
+
+function zeroTime() {
+    // change questions to hidden
+    // #results to visible
+    // set #score to remaining time
+}
+
+function questions() {
+    // for loop for questions
+        // while loop (time > 0) 
+            // var choose question from array
+            // change that question to visible
+            // call answer function
+        // end
+            // call zeroTime()
+}
+
+// eventlistener for answer buttons?
     // changes visible to hidden
     // if (var for correct answers) add text correct in .result
         // else 
@@ -29,17 +53,10 @@ var time = 60;
     // turns #high-scores to visible
 
 // eventlistener for start button
-    // call countdown function
+    // call setTime()
     // turns #begin to hidden
-    // for loop for questions
-        // while loop (time > 0) 
-            // var choose question from array
-            // change that question to visible
-            // call answer function
-        // end
-            // change questions to hidden
-    // #results to visible
-    // set #score to remaining time
+    // call questions()
+    
 
 // eventlistener for submit button
     // save to localstorage #score and #initials
