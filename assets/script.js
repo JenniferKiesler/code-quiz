@@ -90,9 +90,10 @@ function renderHighScores() {
 
         var li = document.createElement('li');
         li.textContent = newInitials + ' - ' + newScores;
-        // add style so list is numbered not 'none'
-        // font size bigger
-        // add background and padding to list item
+        // add class or id or attribute then set the style inside CSS?
+            // add style so list is numbered not 'none'
+            // font size bigger
+            // add background and padding to list item
 
         highScoresList.appendChild(li);
     }
@@ -138,6 +139,8 @@ optionsFive.addEventListener('click', guessAnswer)
 submitBtn.addEventListener('click', function(event) {
     event.preventDefault();
 
+    timer.setAttribute('data-state', 'hidden');
+
     var initialsText = initials.value.trim();
 
     if (initialsText === "") {
@@ -155,6 +158,7 @@ submitBtn.addEventListener('click', function(event) {
 againBtn.addEventListener('click', function() {
     highScoresPage.setAttribute('data-state', 'hidden');
     startPage.setAttribute('data-state', 'visible');
+    timer.setAttribute('data-state', 'visible');
     timeLeft = 60;
     seconds.textContent = timeLeft;
     index = 0;
