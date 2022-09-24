@@ -22,13 +22,14 @@ var clear = document.getElementById('clear');
 
 var timeLeft = 60;
 var index = 0;
+var stopTime
 
 // countdown function
 function setTime() {
     var timerInterval = setInterval(function() {
         timeLeft--;
         timer.textContent = timeLeft;
-
+        stopTime = timerInterval;
         if (timeLeft === 0) {
             clearInterval(timerInterval);
             zeroTime()
@@ -36,22 +37,14 @@ function setTime() {
     }, 1000);
 }
 
+// no time left function
 function zeroTime() {
     questions[index].setAttribute('data-state', 'hidden');
     resultsPage.setAttribute('data-state', 'visible');
     score.textContent = timeLeft;
 }
 
-// function questions() {
-//     // for loop for questions
-//         // while loop (time > 0) 
-//             // var choose question from array
-//             // change that question to visible
-//             // call answer function
-//         // end
-//             // call zeroTime()
-// }
-
+// guessing answer
 function guessAnswer(event) {
     var element = event.target;
 
@@ -74,9 +67,10 @@ function guessAnswer(event) {
         } else {
             questions[4].setAttribute('data-state', 'hidden');
             resultsPage.setAttribute('data-state', 'visible');
+            timer.textContent = timeLeft;
             score.textContent = timeLeft;
+            clearInterval(stopTime);
         } 
-          
     }
 }
 
@@ -91,6 +85,7 @@ optionsTwo.addEventListener('click', guessAnswer)
 optionsThree.addEventListener('click', guessAnswer)
 optionsFour.addEventListener('click', guessAnswer)
 optionsFive.addEventListener('click', guessAnswer)
+
 
 // eventlistener for #scores
     // turns #begin to hidden
