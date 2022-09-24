@@ -26,6 +26,8 @@ var clear = document.getElementById('clear');
 var timeLeft = 60;
 var index = 0;
 var stopTime
+var initialsList = [];
+var scores = [];
 
 // countdown function
 function setTime() {
@@ -77,6 +79,54 @@ function guessAnswer(event) {
     }
 }
 
+function renderHighScores() {
+    var storedInitials = JSON.parse(localStorage.getItem('initialsList'));
+    var storedScores = JSON.parse(localStorage.getItem('scores'));
+
+    if (storedInitials !== null) {
+        initialsList = storedInitials;
+        scores = storedScores;
+    }
+    
+    resultsPage.setAttribute('data-state', 'hidden');
+    highScoresPage.setAttribute('data-state', 'visible');
+
+    for (var i = 0; i < initialsList.length; i++) {
+        var newInitials = initialsList[i];
+
+        var li = document.createElement('li');
+        li.textContent = newInitials + ' - ' + scores[i];
+        // add style so list is numbered not 'none'
+        // font size bigger
+
+        highScoresList.appendChild(li);
+    }
+}
+
+// function getStoredScores() {
+//     var storedInitials = JSON.parse(localStorage.getItem('initialsList'));
+//     var storedScores = JSON.parse(localStorage.getItem('scores'));
+
+//     if (storedInitials !== null) {
+//         initialsList = storedInitials;
+//         scores = storedScores;
+//     }
+//     renderHighScores()
+// }
+
+function storeScores() {
+    localStorage.setItem('initialsList', JSON.stringify(initialsList));
+
+    localStorage.setItem('scores', JSON.stringify(scores));
+}
+
+viewHighScores.addEventListener('click', function() {
+    startPage.setAttribute('data-state', 'hidden');
+    timer.setAttribute('data-state', 'hidden');
+    viewHighScores.setAttribute('data-state', 'hidden');
+    highScoresPage.setAttribute('data-state', 'visible');
+})
+
 startBtn.addEventListener('click', function() {
     setTime();
     startPage.setAttribute('data-state', 'hidden');
@@ -89,18 +139,21 @@ optionsThree.addEventListener('click', guessAnswer)
 optionsFour.addEventListener('click', guessAnswer)
 optionsFive.addEventListener('click', guessAnswer)
 
-viewHighScores.addEventListener('click', function() {
-    startPage.setAttribute('data-state', 'hidden');
-    timer.setAttribute('data-state', 'hidden');
-    viewHighScores.setAttribute('data-state', 'hidden');
-    highScoresPage.setAttribute('data-state', 'visible');
-})
-// eventlistener for #scores
-    // turns #begin to hidden
-    // turns #high-scores to visible
+submitBtn.addEventListener('click', function(event) {
+    event.preventDefault();
 
+    var initialsText = initials.value.trim();
 
-    
+    if (initialsText === "") {
+        return;
+    }
+
+    initialsList.push(initialsText);
+    scores.push(score.textContent);
+    // initials.value = "";
+    storeScores();
+    renderHighScores();
+});
 
 // eventlistener for submit button
     // save to localstorage #score and #initials
