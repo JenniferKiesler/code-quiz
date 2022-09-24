@@ -1,4 +1,6 @@
-var timer = document.getElementById('seconds');
+var viewHighScores = document.getElementById('scores');
+var timer = document.getElementById('time');
+var seconds = document.getElementById('seconds');
 var startPage = document.getElementById('begin');
 var startBtn = document.getElementById('start');
 
@@ -16,6 +18,7 @@ var score = document.getElementById('score');
 var initials = document.getElementById('initials');
 var submitBtn = document.getElementById('submit');
 
+var highScoresPage = document.getElementById('high-scores');
 var highScoresList = document.getElementById('all-scores');
 var againBtn = document.getElementById('play-again');
 var clear = document.getElementById('clear');
@@ -28,7 +31,7 @@ var stopTime
 function setTime() {
     var timerInterval = setInterval(function() {
         timeLeft--;
-        timer.textContent = timeLeft;
+        seconds.textContent = timeLeft;
         stopTime = timerInterval;
         if (timeLeft === 0) {
             clearInterval(timerInterval);
@@ -67,7 +70,7 @@ function guessAnswer(event) {
         } else {
             questions[4].setAttribute('data-state', 'hidden');
             resultsPage.setAttribute('data-state', 'visible');
-            timer.textContent = timeLeft;
+            seconds.textContent = timeLeft;
             score.textContent = timeLeft;
             clearInterval(stopTime);
         } 
@@ -86,7 +89,12 @@ optionsThree.addEventListener('click', guessAnswer)
 optionsFour.addEventListener('click', guessAnswer)
 optionsFive.addEventListener('click', guessAnswer)
 
-
+viewHighScores.addEventListener('click', function() {
+    startPage.setAttribute('data-state', 'hidden');
+    timer.setAttribute('data-state', 'hidden');
+    viewHighScores.setAttribute('data-state', 'hidden');
+    highScoresPage.setAttribute('data-state', 'visible');
+})
 // eventlistener for #scores
     // turns #begin to hidden
     // turns #high-scores to visible
