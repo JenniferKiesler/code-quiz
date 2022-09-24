@@ -79,7 +79,27 @@ function guessAnswer(event) {
     }
 }
 
+// renders initials and score into a li element
 function renderHighScores() {
+    resultsPage.setAttribute('data-state', 'hidden');
+    highScoresPage.setAttribute('data-state', 'visible');
+
+    for (var i = 0; i < initialsList.length; i++) {
+        var newInitials = initialsList[i];
+        var newScores = scores[i];
+
+        var li = document.createElement('li');
+        li.textContent = newInitials + ' - ' + newScores;
+        // add style so list is numbered not 'none'
+        // font size bigger
+        // add background and padding to list item
+
+        highScoresList.appendChild(li);
+    }
+}
+
+// gets stored initials and scores from local storage
+function getStoredScores() {
     var storedInitials = JSON.parse(localStorage.getItem('initialsList'));
     var storedScores = JSON.parse(localStorage.getItem('scores'));
 
@@ -87,33 +107,9 @@ function renderHighScores() {
         initialsList = storedInitials;
         scores = storedScores;
     }
-    
-    resultsPage.setAttribute('data-state', 'hidden');
-    highScoresPage.setAttribute('data-state', 'visible');
-
-    for (var i = 0; i < initialsList.length; i++) {
-        var newInitials = initialsList[i];
-
-        var li = document.createElement('li');
-        li.textContent = newInitials + ' - ' + scores[i];
-        // add style so list is numbered not 'none'
-        // font size bigger
-
-        highScoresList.appendChild(li);
-    }
 }
 
-// function getStoredScores() {
-//     var storedInitials = JSON.parse(localStorage.getItem('initialsList'));
-//     var storedScores = JSON.parse(localStorage.getItem('scores'));
-
-//     if (storedInitials !== null) {
-//         initialsList = storedInitials;
-//         scores = storedScores;
-//     }
-//     renderHighScores()
-// }
-
+// stores initials and score into local storage
 function storeScores() {
     localStorage.setItem('initialsList', JSON.stringify(initialsList));
 
@@ -149,22 +145,25 @@ submitBtn.addEventListener('click', function(event) {
     }
 
     initialsList.push(initialsText);
+    initials.value = "";
     scores.push(score.textContent);
-    // initials.value = "";
     storeScores();
+    getStoredScores()
     renderHighScores();
 });
 
-// eventlistener for submit button
-    // save to localstorage #score and #initials
-    // #results to hidden
-    // get data from localstorage and display in #all-scores as list item as initials - score
-    // add background and padding to list item
-    // #high-scores to visible
+againBtn.addEventListener('click', function() {
+    highScoresPage.setAttribute('data-state', 'hidden');
+    startPage.setAttribute('data-state', 'visible');
+    timeLeft = 60;
+    seconds.textContent = timeLeft;
+    index = 0;
+    initialsList = [];
+    scores = [];
+})
 
-// eventlistener for #play-again
-    // #high-scores hidden
-    // #begin visible
-
-// eventlistener for #clear
-    // clear list items
+clear.addEventListener('click', function() {
+    localStorage.removeItem('scores');
+    localStorage.removeItem('initialsList');
+    highScoresList.textContent = "";
+})
