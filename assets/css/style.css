@@ -144,3 +144,13 @@ h4 {
     padding: 10px;
     margin: 10px;
 }
+
+#scoresList {
+    font-size: 25px;
+    padding: 15px;
+    background: var(--buttonFont);
+    width: 365px;
+    margin: auto;
+}
+
+/* media query */

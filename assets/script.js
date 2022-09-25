@@ -89,6 +89,7 @@ function renderHighScores() {
         var newScores = scores[i];
 
         var li = document.createElement('li');
+        li.setAttribute('id', 'scoresList')
         li.textContent = newInitials + ' - ' + newScores;
         // add class or id or attribute then set the style inside CSS?
             // add style so list is numbered not 'none'
