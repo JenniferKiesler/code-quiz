@@ -83,18 +83,14 @@ function guessAnswer(event) {
 function renderHighScores() {
     resultsPage.setAttribute('data-state', 'hidden');
     highScoresPage.setAttribute('data-state', 'visible');
-
+    highScoresList.innerHTML = '';
     for (var i = 0; i < initialsList.length; i++) {
         var newInitials = initialsList[i];
         var newScores = scores[i];
 
         var li = document.createElement('li');
-        li.setAttribute('id', 'scoresList')
+        li.setAttribute('class', 'scoresList')
         li.textContent = newInitials + ' - ' + newScores;
-        // add class or id or attribute then set the style inside CSS?
-            // add style so list is numbered not 'none'
-            // font size bigger
-            // add background and padding to list item
 
         highScoresList.appendChild(li);
     }
@@ -121,8 +117,9 @@ function storeScores() {
 viewHighScores.addEventListener('click', function() {
     startPage.setAttribute('data-state', 'hidden');
     timer.setAttribute('data-state', 'hidden');
-    viewHighScores.setAttribute('data-state', 'hidden');
     highScoresPage.setAttribute('data-state', 'visible');
+    getStoredScores();
+    renderHighScores();
 })
 
 startBtn.addEventListener('click', function() {
@@ -142,7 +139,7 @@ submitBtn.addEventListener('click', function(event) {
 
     timer.setAttribute('data-state', 'hidden');
 
-    var initialsText = initials.value.trim();
+    var initialsText = initials.value.trim().toUpperCase();
 
     if (initialsText === "") {
         return;
@@ -152,7 +149,7 @@ submitBtn.addEventListener('click', function(event) {
     initials.value = "";
     scores.push(score.textContent);
     storeScores();
-    getStoredScores()
+    getStoredScores();
     renderHighScores();
 });
 
@@ -163,12 +160,13 @@ againBtn.addEventListener('click', function() {
     timeLeft = 60;
     seconds.textContent = timeLeft;
     index = 0;
+})
+
+clear.addEventListener('click', function() {
+    localStorage.clear()
+    highScoresList.textContent = "";
     initialsList = [];
     scores = [];
 })
 
-clear.addEventListener('click', function() {
-    localStorage.removeItem('scores');
-    localStorage.removeItem('initialsList');
-    highScoresList.textContent = "";
-})
+getStoredScores()
