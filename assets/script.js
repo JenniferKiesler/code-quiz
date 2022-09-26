@@ -175,4 +175,5 @@ clear.addEventListener('click', function() {
     scores = [];
 })
 
+// retrieves the scores and initials and renders them to the page on load
 getStoredScores()
