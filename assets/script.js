@@ -66,6 +66,12 @@ function guessAnswer(event) {
             index++;
             timeLeft = timeLeft - 10;
         }
+
+        if (timeLeft < 0) {
+            timeLeft = 0;
+        } else if (timeLeft === 0) {
+            answerResult[4].textContent = '';
+        }
         
         if (index <= 4) {
             questions[index].setAttribute('data-state', 'visible');
